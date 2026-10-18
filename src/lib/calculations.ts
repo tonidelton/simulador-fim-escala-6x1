@@ -1,6 +1,12 @@
 import type { CompanyProfile, StepResult, ScenarioResult, TimelineEvent } from './types';
 
 /**
+ * Data de publicação da EC 141/2026 no Diário Oficial da União (edição extra).
+ * A contagem dos prazos da emenda começa a partir desta data.
+ */
+export const DATA_PUBLICACAO_EC = '2026-10-16';
+
+/**
  * Convert weekly hours to monthly hours average
  * Formula: weeklyHours × (30/7)
  */
@@ -156,42 +162,52 @@ export function formatDate(date: Date): string {
 }
 
 /**
- * Generate timeline events from promulgation date
- */
-export function generateTimeline(promulgationDate: string): TimelineEvent[] {
-  const promDate = new Date(promulgationDate + 'T00:00:00');
-  const step1Date = addDays(promulgationDate, 60);
-  const step2Date = addMonths(promulgationDate, 14);
-
-  return [
-    {
-      date: formatDate(promDate),
-      label: 'Promulgação',
-      description: 'Data estimada da promulgação da PEC. Início da contagem dos prazos.',
-    },
-    {
-      date: formatDate(step1Date),
-      label: 'Etapa 1 — 42h semanais',
-      description: '+60 dias após promulgação. Jornada máxima de 42h semanais com RSR de 2 dias (um preferencialmente aos domingos).',
-    },
-    {
-      date: formatDate(step2Date),
-      label: 'Etapa 2 — 40h semanais',
-      description: '+14 meses após promulgação. Jornada máxima de 40h semanais. Fim da transição.',
-    },
-  ];
-}
-
-/**
  * Get step dates as ISO strings
+ * Etapa 1: +60 dias da publicação (ou +12 meses se presta serviço à administração pública)
+ * Etapa 2: +14 meses da publicação (sempre 16/12/2027)
  */
-export function getStepDates(promulgationDate: string): { step1: string; step2: string } {
-  const step1Date = addDays(promulgationDate, 60);
-  const step2Date = addMonths(promulgationDate, 14);
+export function getStepDates(publicService: boolean = false): { step1: string; step2: string } {
+  const step1Date = publicService
+    ? addMonths(DATA_PUBLICACAO_EC, 12) // +12 meses para terceirizados públicos
+    : addDays(DATA_PUBLICACAO_EC, 60);  // +60 dias para demais empresas
+  const step2Date = addMonths(DATA_PUBLICACAO_EC, 14); // +14 meses (sempre)
   return {
     step1: step1Date.toISOString().split('T')[0],
     step2: step2Date.toISOString().split('T')[0],
   };
+}
+
+/**
+ * Generate timeline events from publication date
+ */
+export function generateTimeline(publicService: boolean = false): TimelineEvent[] {
+  const pubDate = new Date(DATA_PUBLICACAO_EC + 'T00:00:00');
+  const step1Date = publicService
+    ? addMonths(DATA_PUBLICACAO_EC, 12)
+    : addDays(DATA_PUBLICACAO_EC, 60);
+  const step2Date = addMonths(DATA_PUBLICACAO_EC, 14);
+
+  const events: TimelineEvent[] = [
+    {
+      date: formatDate(pubDate),
+      label: 'Publicação da EC 141/2026',
+      description: 'Emenda Constitucional promulgada e publicada em edição extra do DOU em 16/10/2026. Início da contagem dos prazos.',
+    },
+    {
+      date: formatDate(step1Date),
+      label: 'Etapa 1 — 42h semanais',
+      description: publicService
+        ? '+12 meses após publicação. Terceirizados da administração pública: transição condicionada ao aditamento do contrato. Jornada máxima de 42h semanais com RSR de 2 dias (um preferencialmente aos domingos). Cláusulas coletivas de jornada incompatíveis perdem validade nesta data.'
+        : '+60 dias após publicação. Jornada máxima de 42h semanais com RSR de 2 dias (um preferencialmente aos domingos). Nesta mesma data, cláusulas coletivas de jornada incompatíveis com o novo patamar perdem validade.',
+    },
+    {
+      date: formatDate(step2Date),
+      label: 'Etapa 2 — 40h semanais (escala 5x2)',
+      description: '+14 meses após publicação. Jornada máxima final de 40h semanais, escala 5x2. Fim da transição.',
+    },
+  ];
+
+  return events;
 }
 
 /**
@@ -203,7 +219,7 @@ export function runSimulation(profile: CompanyProfile): {
   step1: StepResult;
   step2: StepResult;
 } {
-  const dates = getStepDates(profile.promulgationDate);
+  const dates = getStepDates(profile.publicService);
   const sheet = currentMonthlySheet(profile);
   const total = totalEmployees(profile);
   const s1 = calculateStep(profile, 42, dates.step1);

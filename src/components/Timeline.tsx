@@ -7,21 +7,34 @@ interface Props {
 }
 
 export default function Timeline({ profile }: Props) {
-  const events = useMemo(() => generateTimeline(profile.promulgationDate), [profile.promulgationDate]);
+  const events = useMemo(() => generateTimeline(profile.publicService), [profile.publicService]);
 
   return (
     <div className="space-y-6">
       {/* Alert */}
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
-        <span className="text-xl">⚠️</span>
+      <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-start gap-3">
+        <span className="text-xl">✅</span>
         <div>
-          <p className="font-semibold text-amber-800 text-sm">Datas estimadas</p>
-          <p className="text-xs text-amber-700 mt-1">
-            As datas abaixo são calculadas a partir da data de promulgação informada ({profile.promulgationDate.split('-').reverse().join('/')}). 
-            A data real dependerá da publicação oficial. Ajuste a data no perfil da empresa conforme necessário.
+          <p className="font-semibold text-emerald-800 text-sm">EC 141/2026 — Promulgada e Publicada</p>
+          <p className="text-xs text-emerald-700 mt-1">
+            A Emenda Constitucional 141/2026 foi promulgada e publicada em edição extra do Diário Oficial da União em <strong>16/10/2026</strong>. 
+            A contagem dos prazos já começou. As datas abaixo são <strong>fixas e definitivas</strong>.
           </p>
         </div>
       </div>
+
+      {profile.publicService && (
+        <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 flex items-start gap-3">
+          <span className="text-xl">🏛️</span>
+          <div>
+            <p className="font-semibold text-indigo-800 text-sm">Empresa Prestadora de Serviço à Administração Pública</p>
+            <p className="text-xs text-indigo-700 mt-1">
+              Para terceirizados da administração pública, a Etapa 1 (42h) é postergada para <strong>+12 meses da publicação (16/10/2027)</strong>, 
+              condicionada ao aditamento do contrato. A Etapa 2 (40h) permanece em 16/12/2027.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Timeline */}
       <div className="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
@@ -64,13 +77,13 @@ export default function Timeline({ profile }: Props) {
           <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
             <p className="font-semibold text-blue-800 text-sm">Cláusulas Coletivas</p>
             <p className="text-xs text-blue-700 mt-1">
-              Cláusulas coletivas sobre jornada incompatíveis com o novo patamar perdem validade <strong>2 meses após a promulgação</strong>.
+              Cláusulas coletivas sobre jornada incompatíveis com o novo patamar perdem validade em <strong>15/12/2026</strong> (Etapa 1).
             </p>
           </div>
           <div className="p-4 bg-green-50 rounded-lg border border-green-100">
             <p className="font-semibold text-green-800 text-sm">Janela de Transição 42h→40h</p>
             <p className="text-xs text-green-700 mt-1">
-              Na janela de 1 ano entre 42h e 40h, acordo ou convenção coletiva pode ampliar a jornada diária acima de 8h para viabilizar a transição.
+              Na janela entre a Etapa 1 e a Etapa 2, acordo ou convenção coletiva pode ampliar a jornada diária acima de 8h para viabilizar a transição.
             </p>
           </div>
           <div className="p-4 bg-purple-50 rounded-lg border border-purple-100">

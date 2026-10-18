@@ -9,7 +9,7 @@ export interface CompanyProfile {
   chargesPercent: number;
   overtimeHoursPerWeek: number;
   operates6Days: boolean;
-  promulgationDate: string; // ISO date string
+  publicService: boolean; // Presta serviço à administração pública
 }
 
 export interface SimulationResult {

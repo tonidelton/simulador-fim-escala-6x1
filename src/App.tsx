@@ -10,7 +10,7 @@ import History from './components/History';
 import LegalInfo from './components/LegalInfo';
 
 const TABS: { id: TabId; label: string; icon: string }[] = [
-  { id: 'resumo', label: 'Resumo da PEC', icon: '📜' },
+  { id: 'resumo', label: 'Resumo da EC 141/2026', icon: '📜' },
   { id: 'simulacao', label: 'Simulação', icon: '📊' },
   { id: 'cronograma', label: 'Cronograma', icon: '📅' },
   { id: 'plano', label: 'Plano de Ação', icon: '✅' },
@@ -72,7 +72,7 @@ export default function App() {
                 Simulador de Impacto — Fim da Escala 6x1
               </h1>
               <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                PEC 221/2019 • Redução de jornada de 44h para 40h semanais
+                EC 141/2026 • Redução de jornada de 44h para 40h semanais • Publicada em 16/10/2026
               </p>
             </div>
             {/* Mobile menu button */}

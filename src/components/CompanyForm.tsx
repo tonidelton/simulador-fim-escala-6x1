@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { CompanyProfile } from '../lib/types';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,10 +11,6 @@ const SECTORS = ['Comércio', 'Alimentação', 'Serviços', 'Indústria', 'Saúd
 
 export default function CompanyForm({ profile, onChange }: Props) {
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Ensure profile is initialized
-  }, []);
 
   const update = (field: keyof CompanyProfile, value: string | number | boolean) => {
     onChange({ ...profile, [field]: value });
@@ -54,17 +50,14 @@ export default function CompanyForm({ profile, onChange }: Props) {
           </select>
         </div>
 
-        {/* Data promulgação */}
+        {/* Publicação EC 141/2026 - Info fixa */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
-            Data Estimada de Promulgação
+            Publicação EC 141/2026
           </label>
-          <input
-            type="date"
-            value={profile.promulgationDate}
-            onChange={(e) => update('promulgationDate', e.target.value)}
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-          />
+          <div className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-slate-50 text-slate-600 text-sm">
+            16/10/2026 (fixa)
+          </div>
         </div>
 
         {/* Empregados 44h */}
@@ -186,6 +179,21 @@ export default function CompanyForm({ profile, onChange }: Props) {
             <span className="text-xs text-slate-500 ml-2">(Habilita o Cenário C — redistribuição de escala)</span>
           </label>
         </div>
+
+        {/* Presta serviço à administração pública */}
+        <div className="md:col-span-2 flex items-center gap-3 p-3 bg-indigo-50 border border-indigo-200 rounded-lg">
+          <input
+            type="checkbox"
+            id="publicService"
+            checked={profile.publicService}
+            onChange={(e) => update('publicService', e.target.checked)}
+            className="w-5 h-5 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500"
+          />
+          <label htmlFor="publicService" className="text-sm font-medium text-slate-700">
+            Presta serviço à administração pública
+            <span className="text-xs text-slate-500 ml-2">(Terceirizados: Etapa 1 postergada para +12 meses — 16/10/2027)</span>
+          </label>
+        </div>
       </div>
     </div>
   );
@@ -203,6 +211,6 @@ export function createDefaultProfile(): CompanyProfile {
     chargesPercent: 70,
     overtimeHoursPerWeek: 0,
     operates6Days: false,
-    promulgationDate: '2026-11-15',
+    publicService: false,
   };
 }

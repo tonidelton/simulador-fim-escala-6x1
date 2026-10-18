@@ -8,20 +8,22 @@ const CHECKLIST_ITEMS = [
   { id: 'map', text: 'Mapear quadro de empregados (6x1, 5x2, 12x36, teletrabalho)', category: 'Diagnóstico' },
   { id: 'conv', text: 'Levantar convenção/acordo coletivo vigente', category: 'Diagnóstico' },
   { id: 'neg', text: 'Negociar acordo de transição na janela 42h→40h', category: 'Negociação' },
+  { id: 'clausulas', text: 'Atenção: cláusulas coletivas de jornada perdem validade em 15/12/2026', category: 'Negociação' },
   { id: 'esc', text: 'Reprojetar escalas de trabalho para formato 5x2', category: 'Operacional' },
   { id: 'he', text: 'Revisar política de horas extras e banco de horas', category: 'Operacional' },
   { id: 'sup', text: 'Avaliar exceção de empregados com diploma superior (salário > 2,5× teto INSS)', category: 'Jurídico' },
-  { id: 'mei', text: 'Acompanhar lei complementar para MEI/micro/pequena empresa', category: 'Jurídico' },
+  { id: 'mei', text: 'Acompanhar PLP 201/2026 — pode criar regras transitórias para MEI/micro/pequena empresa', category: 'Jurídico' },
   { id: 'apres', text: 'Apresentar simulação de impacto ao cliente', category: 'Consultoria' },
 ];
 
 const LEGAL_POINTS = [
   { title: 'Sem redução salarial', desc: 'A redução de jornada não permite qualquer redução salarial — nominal, proporcional ou de qualquer espécie, inclusive pisos salariais.' },
   { title: 'Escala 12x36', desc: 'Regime diferenciado por lei ordinária, com compensação de repouso via acordo coletivo (média mensal).' },
-  { title: 'Terceirizados da administração pública', desc: 'Transição via aditamento contratual.' },
-  { title: 'Empregados públicos', desc: 'Não alcançados pelas novas regras de jornada.' },
-  { title: 'PEC 12/2026', desc: 'Monitorar tramitação — pode trazer alterações complementares.' },
+  { title: 'Terceirizados da administração pública', desc: 'Transição condicionada ao aditamento do contrato. Etapa 1 postergada para +12 meses (16/10/2027).' },
+  { title: 'Empregados públicos', desc: 'Não alcançados pela emenda.' },
+  { title: 'Quem já trabalha ≤ 40h', desc: 'Sem redução de carga. A partir da Etapa 1, garantia dos 2 dias de repouso semanal remunerado (um preferencialmente aos domingos).' },
   { title: 'Diploma superior + salário elevado', desc: 'Empregado com diploma de curso superior e salário acima de 2,5× teto do INSS (≈R$ 21.188,87) fica fora das regras de duração e controle de jornada, por liberalidade do empregador ou acordo coletivo. Mantido o repouso de 2 dias.' },
+  { title: 'Cláusulas coletivas', desc: 'Cláusulas coletivas sobre jornada incompatíveis com o novo patamar perdem validade em 15/12/2026 (Etapa 1).' },
 ];
 
 export default function ActionPlan({ companyId }: Props) {
