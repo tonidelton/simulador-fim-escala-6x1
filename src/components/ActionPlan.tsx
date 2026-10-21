@@ -12,7 +12,7 @@ const CHECKLIST_ITEMS = [
   { id: 'esc', text: 'Reprojetar escalas de trabalho para formato 5x2', category: 'Operacional' },
   { id: 'he', text: 'Revisar política de horas extras e banco de horas', category: 'Operacional' },
   { id: 'sup', text: 'Avaliar exceção de empregados com diploma superior (salário > 2,5× teto INSS)', category: 'Jurídico' },
-  { id: 'mei', text: 'Acompanhar PLP 201/2026 — pode criar regras transitórias para MEI/micro/pequena empresa', category: 'Jurídico' },
+  { id: 'mei', text: 'Acompanhar o PLP 201/2026 (mitigação de jornada) e verificar aplicação do PLP 186/2026 sancionado (perdão de dívidas MEI, limite R$ 140 mil, 2 empregados)', category: 'Jurídico' },
   { id: 'apres', text: 'Apresentar simulação de impacto ao cliente', category: 'Consultoria' },
 ];
 

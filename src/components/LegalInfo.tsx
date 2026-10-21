@@ -54,6 +54,62 @@ export default function LegalInfo() {
         </div>
       </div>
 
+      {/* Benefícios MEI - PLP 186/2026 Sancionado */}
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl shadow-lg p-6 border-2 border-emerald-300">
+        <div className="flex items-start gap-3 mb-4">
+          <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+            <span className="text-2xl">🎁</span>
+          </div>
+          <div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h3 className="text-lg font-bold text-emerald-900">Benefícios para MEIs — PLP 186/2026</h3>
+              <span className="text-[10px] uppercase tracking-wider bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold">
+                Sancionado
+              </span>
+            </div>
+            <p className="text-xs text-emerald-800 mt-1">
+              "Pacote Prospera MEI" — sancionado pelo Presidente da República em <strong>21/10/2026</strong>, vinculado pelo próprio governo à aprovação do fim da escala 6x1.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+          <div className="bg-white rounded-lg p-4 border border-emerald-200">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xl">💰</span>
+              <h4 className="font-bold text-emerald-900 text-sm">Perdão de Dívidas</h4>
+            </div>
+            <p className="text-xs text-slate-700">
+              Perdão <strong>integral</strong> de dívidas federais do MEI (tributárias, contribuições previdenciárias, multas, juros e encargos) geradas até <strong>13/10/2026</strong>, inscritas ou não na Dívida Ativa da União.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg p-4 border border-emerald-200">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xl">📈</span>
+              <h4 className="font-bold text-emerald-900 text-sm">Limite de Faturamento</h4>
+            </div>
+            <p className="text-xs text-slate-700">
+              Aumento do limite anual de R$ 81 mil para <strong>R$ 110 mil em 2027</strong> e <strong>R$ 140 mil em 2028</strong>. Primeiro reajuste desde 2018.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg p-4 border border-emerald-200">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xl">👥</span>
+              <h4 className="font-bold text-emerald-900 text-sm">Até 2 Empregados</h4>
+            </div>
+            <p className="text-xs text-slate-700">
+              Ampliação de 1 para <strong>2 empregados</strong> permitidos por MEI, possibilitando maior capacidade operacional.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white/70 rounded-lg p-3 border border-emerald-200 text-xs text-emerald-900">
+          <strong>Contexto:</strong> o governo vinculou expressamente a sanção deste pacote à aprovação do fim da escala 6x1 (EC 141/2026). Para MEIs, micro e pequenas empresas, a regulamentação específica da jornada segue em análise no <strong>PLP 201/2026</strong> (Senado).
+        </div>
+      </div>
+
       {/* Exceptions */}
       <div className="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
         <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
@@ -65,22 +121,22 @@ export default function LegalInfo() {
               <span className="text-lg">🏪</span> MEI, Micro e Pequenas Empresas
             </h4>
             <p className="text-xs text-slate-600 mt-2">
-              Regras transitórias serão definidas em <strong>lei complementar futura</strong>, condicionadas à manutenção do emprego.
+              A regulamentação da jornada para MEIs, micro e pequenas empresas está em <strong>PLP 201/2026, em tramitação no Senado</strong> — pode criar regras transitórias de mitigação da jornada, condicionadas à manutenção do emprego. Enquanto isso, já está <strong>vigente o PLP 186/2026</strong> (sancionado em 21/10/2026), com benefícios diretos ao MEI (perdão de dívidas, aumento do limite de faturamento e até 2 empregados).
             </p>
             <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
               <p className="text-xs text-amber-800 font-semibold flex items-center gap-1">
-                <span>🚨</span> PLP 201/2026 em tramitação no Senado
+                <span>⏳</span> PLP 201/2026 em tramitação no Senado
               </p>
               <p className="text-xs text-amber-700 mt-1">
-                Pode criar regras transitórias de mitigação para MEIs, micro e pequenas empresas, condicionadas à manutenção do emprego.
+                Pode criar regras transitórias de mitigação da jornada para MEIs, micro e pequenas empresas, condicionadas à manutenção do emprego.
               </p>
             </div>
-            <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-              <p className="text-xs text-blue-800 font-semibold flex items-center gap-1">
-                <span>📋</span> PLP 186/2026 aprovado
+            <div className="mt-2 p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
+              <p className="text-xs text-emerald-800 font-semibold flex items-center gap-1">
+                <span>✅</span> PLP 186/2026 sancionado (21/10/2026)
               </p>
-              <p className="text-xs text-blue-700 mt-1">
-                Limite do MEI para R$ 140 mil em 2028, perdão de dívidas até 13/10/2026, até 2 empregados. Remetido à sanção presidencial em 16/10/2026, prazo de sanção/veto até 06/11/2026.
+              <p className="text-xs text-emerald-700 mt-1">
+                Já em vigor: perdão integral de dívidas federais do MEI até 13/10/2026, limite de faturamento ampliado (R$ 110 mil em 2027 → R$ 140 mil em 2028) e até 2 empregados permitidos.
               </p>
             </div>
           </div>
@@ -134,6 +190,31 @@ export default function LegalInfo() {
           <p className="text-xs text-indigo-600 mt-2">
             Cláusulas coletivas sobre jornada incompatíveis com o novo patamar perdem validade em <strong>15/12/2026</strong>.
           </p>
+        </div>
+      </div>
+
+      {/* Fontes Verificadas */}
+      <div className="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <span>📚</span> Fontes e Referências
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <p className="font-semibold text-slate-800 mb-1">EC 141/2026</p>
+            <p className="text-slate-600">Senado Notícias e Agência Câmara, 16/10/2026.</p>
+          </div>
+          <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <p className="font-semibold text-slate-800 mb-1">PLP 186/2026 — Sanção</p>
+            <p className="text-slate-600">O Hoje e Congresso em Foco, 21/10/2026.</p>
+          </div>
+          <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <p className="font-semibold text-slate-800 mb-1">PLP 186/2026 — Detalhes</p>
+            <p className="text-slate-600">Senado Federal (matéria 175969), Agência Brasil, 15–16/10/2026.</p>
+          </div>
+          <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
+            <p className="font-semibold text-slate-800 mb-1">PLP 201/2026</p>
+            <p className="text-slate-600">Senado Federal (matéria 175101), situação: Plenário do Senado.</p>
+          </div>
         </div>
       </div>
 
