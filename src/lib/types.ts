@@ -42,4 +42,4 @@ export interface TimelineEvent {
   description: string;
 }
 
-export type TabId = 'resumo' | 'simulacao' | 'professores' | 'cronograma' | 'plano' | 'historico';
+export type TabId = 'resumo' | 'simulacao' | 'professores' | 'escalas' | 'cronograma' | 'plano' | 'historico';
