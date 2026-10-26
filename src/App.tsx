@@ -4,6 +4,7 @@ import { runSimulation } from './lib/calculations';
 import { saveSimulation, saveCurrentProfile, getCurrentProfile } from './lib/storage';
 import CompanyForm, { createDefaultProfile } from './components/CompanyForm';
 import Dashboard from './components/Dashboard';
+import ProfessoresAulistas from './components/ProfessoresAulistas';
 import Timeline from './components/Timeline';
 import ActionPlan from './components/ActionPlan';
 import History from './components/History';
@@ -12,6 +13,7 @@ import LegalInfo from './components/LegalInfo';
 const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: 'resumo', label: 'Resumo da EC 141/2026', icon: '📜' },
   { id: 'simulacao', label: 'Simulação', icon: '📊' },
+  { id: 'professores', label: 'Professores Aulistas', icon: '👨‍🏫' },
   { id: 'cronograma', label: 'Cronograma', icon: '📅' },
   { id: 'plano', label: 'Plano de Ação', icon: '✅' },
   { id: 'historico', label: 'Histórico', icon: '💾' },
@@ -153,6 +155,10 @@ export default function App() {
           </div>
         )}
 
+        {activeTab === 'professores' && (
+          <ProfessoresAulistas />
+        )}
+
         {activeTab === 'cronograma' && (
           <Timeline profile={profile} />
         )}
@@ -191,7 +197,7 @@ export default function App() {
             <span className="text-amber-400 flex-shrink-0">⚠️</span>
             <p className="text-[11px] leading-relaxed">
               <strong>Aviso Legal:</strong> Os valores apresentados são estimativas para planejamento. Não consideram desonerações específicas, ganhos de produtividade nem remuneração variável. 
-              A simulação apoia a consultoria, mas não substitui análise jurídica caso a caso.
+              A simulação apoia a consultoria, mas não substitui análise jurídica caso a caso. Os cálculos da calculadora de DSR são estimativas de planejamento e não substituem análise jurídica nem a convenção coletiva aplicável.
             </p>
           </div>
           <div className="text-[11px] text-slate-400 sm:text-right flex-shrink-0">

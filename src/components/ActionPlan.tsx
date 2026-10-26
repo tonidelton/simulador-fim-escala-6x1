@@ -9,6 +9,8 @@ const CHECKLIST_ITEMS = [
   { id: 'conv', text: 'Levantar convenção/acordo coletivo vigente', category: 'Diagnóstico' },
   { id: 'neg', text: 'Negociar acordo de transição na janela 42h→40h', category: 'Negociação' },
   { id: 'clausulas', text: 'Atenção: cláusulas coletivas de jornada perdem validade em 15/12/2026', category: 'Negociação' },
+  { id: 'prof_contratos', text: 'Revisar contratos e convenções de professores horistas antes de 15/12/2026 (cláusulas sobre DSR e jornada perdem efeito com a EC 141, art. 3º)', category: 'Negociação' },
+  { id: 'prof_dsr', text: 'Definir estratégia de DSR do horista: manter 1/6 com folga compensatória, adotar 2/5 ou converter em mensalista — com avaliação do impacto em mensalidades', category: 'Negociação' },
   { id: 'esc', text: 'Reprojetar escalas de trabalho para formato 5x2', category: 'Operacional' },
   { id: 'he', text: 'Revisar política de horas extras e banco de horas', category: 'Operacional' },
   { id: 'sup', text: 'Avaliar exceção de empregados com diploma superior (salário > 2,5× teto INSS)', category: 'Jurídico' },

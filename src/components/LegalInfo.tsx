@@ -54,6 +54,39 @@ export default function LegalInfo() {
         </div>
       </div>
 
+      {/* Regulamentação e benefícios paralelos */}
+      <div className="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <span>📋</span> Regulamentação e benefícios paralelos
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg">⏳</span>
+              <h4 className="font-semibold text-amber-900 text-sm">PLP 201/2026</h4>
+              <span className="text-[10px] uppercase tracking-wider bg-amber-500 text-white px-2 py-0.5 rounded-full font-bold">
+                Em tramitação
+              </span>
+            </div>
+            <p className="text-xs text-amber-800">
+              Medidas transitórias de mitigação da jornada para MEIs, micro e pequenas empresas, condicionadas à manutenção do emprego. Em tramitação no Senado, aguardando deliberação do Plenário.
+            </p>
+          </div>
+          <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg">✅</span>
+              <h4 className="font-semibold text-emerald-900 text-sm">PLP 186/2026 — Pacote Prospera MEI</h4>
+              <span className="text-[10px] uppercase tracking-wider bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold">
+                Sancionado
+              </span>
+            </div>
+            <p className="text-xs text-emerald-800">
+              Sancionado em <strong>21/10/2026</strong>. Perdão integral de dívidas federais dos MEIs geradas até 13/10/2026 (inscritas ou não na Dívida Ativa); limite de faturamento de R$ 110 mil em 2027 e R$ 140 mil em 2028; permissão de até 2 empregados.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Benefícios MEI - PLP 186/2026 Sancionado */}
       <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl shadow-lg p-6 border-2 border-emerald-300">
         <div className="flex items-start gap-3 mb-4">
